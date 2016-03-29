@@ -152,14 +152,15 @@
 #define MAX_SUPPLIED_LAW_NUMBER 50
 
 //Material defines
-#define MAT_METAL		"$metal"
-#define MAT_GLASS		"$glass"
-#define MAT_SILVER		"$silver"
-#define MAT_GOLD		"$gold"
-#define MAT_DIAMOND		"$diamond"
-#define MAT_URANIUM		"$uranium"
-#define MAT_PLASMA		"$plasma"
-#define MAT_BANANIUM	"$bananium"
+#define MAT_METAL			"$metal"
+#define MAT_GLASS			"$glass"
+#define MAT_SILVER			"$silver"
+#define MAT_GOLD			"$gold"
+#define MAT_DIAMOND			"$diamond"
+#define MAT_URANIUM			"$uranium"
+#define MAT_PLASMA			"$plasma"
+#define MAT_BANANIUM		"$bananium"
+#define MAT_TRANQUILLITE	"$tranquillite"
 
 #define MAX_STACK_SIZE 50
 
@@ -180,3 +181,5 @@
 #define TURF_WET_WATER	1
 #define TURF_WET_LUBE	2
 #define TURF_WET_ICE	3
+
+#define APPEARANCE_UI_IGNORE_ALPHA			RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|RESET_ALPHA

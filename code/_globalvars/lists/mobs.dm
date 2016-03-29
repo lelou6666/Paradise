@@ -66,10 +66,12 @@ var/global/list/blocked_mobs = list(/mob/living/simple_animal,
 			/mob/living/simple_animal/hostile/winter/santa/stage_1,
 			/mob/living/simple_animal/hostile/winter/santa/stage_2,
 			/mob/living/simple_animal/hostile/winter/santa/stage_3,
-			/mob/living/simple_animal/hostile/winter/santa/stage_4
+			/mob/living/simple_animal/hostile/winter/santa/stage_4,
+			/mob/living/simple_animal/hostile/alien/maid
 			)
 
 var/global/list/med_hud_users = list()
 var/global/list/sec_hud_users = list()
 var/global/list/antag_hud_users = list()
+var/global/list/surgeries_list = list()
 		//items that ask to be called every cycle

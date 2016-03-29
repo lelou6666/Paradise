@@ -15,6 +15,8 @@
 	var/obj/screen/lingchemdisplay
 	var/obj/screen/lingstingdisplay
 
+	var/obj/screen/guardianhealthdisplay
+
 	var/obj/screen/blobpwrdisplay
 	var/obj/screen/blobhealthdisplay
 	var/obj/screen/vampire_blood_display
@@ -109,8 +111,6 @@ datum/hud/New(mob/owner)
 		ai_hud()
 	else if(isrobot(mymob))
 		robot_hud()
-	else if(iscorgi(mymob))
-		corgi_hud()
 	else if(isobserver(mymob))
 		ghost_hud()
 	else if(isovermind(mymob))
@@ -121,6 +121,8 @@ datum/hud/New(mob/owner)
 		swarmer_hud()
 	else if(isguardian(mymob))
 		guardian_hud()
+	else if(ispet(mymob))
+		corgi_hud()
 
 	reload_fullscreen()
 

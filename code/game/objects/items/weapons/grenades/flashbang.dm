@@ -26,12 +26,29 @@
 	var/ear_safety = M.check_ear_prot()
 	var/distance = max(1,get_dist(src,T))
 //Flash
+<<<<<<< HEAD
 	if(M.flash_eyes(affect_silicon = 1))
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
 			if(E)
 				E.damage += rand(1, 3)
+=======
+	var/eye_damage = rand(1,3)
+	if(M.weakeyes)
+		M.visible_message("<span class='disarm'><b>[M]</b> screams and collapses!</span>")
+		M << "<span class='userdanger'>AAAAGH! IT BURNS!</span>"
+		M.Weaken(15) //hella stunned
+		M.Stun(15)
+		eye_damage += 8
+
+	if(!eye_safety && ishuman(M))
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/internal/eyes/E = H.get_int_organ(/obj/item/organ/internal/eyes)
+		flick("e_flash", M.flash)
+		if (E)
+			E.damage += eye_damage
+>>>>>>> refs/remotes/ParadiseSS13/master
 		M.Stun(max(10/distance, 3))
 		M.Weaken(max(10/distance, 3))
 

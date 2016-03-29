@@ -15,7 +15,8 @@
 	M.setCloneLoss(0)
 	M.setOxyLoss(0)
 	M.radiation = 0
-	M.heal_organ_damage(5,5)
+	M.adjustBruteLoss(-5)
+	M.adjustFireLoss(-5)
 	M.adjustToxLoss(-5)
 	M.hallucination = 0
 	M.setBrainLoss(0)
@@ -25,7 +26,7 @@
 	M.eye_blind = 0
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/eyes/E = H.internal_organs_by_name["eyes"]
+		var/obj/item/organ/internal/eyes/E = H.get_int_organ(/obj/item/organ/internal/eyes)
 		if(istype(E))
 			E.damage = max(E.damage-5 , 0)
 	M.SetWeakened(0)

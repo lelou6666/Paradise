@@ -351,6 +351,49 @@
 		hitsound = "swing_hit"
 		update_icon()
 
+<<<<<<< HEAD
+=======
+//Decides whether or not to damage a player's eyes based on what they're wearing as protection
+//Note: This should probably be moved to mob
+/obj/item/weapon/weldingtool/proc/eyecheck(mob/user as mob)
+	if(!iscarbon(user))	return 1
+	var/safety = user:eyecheck()
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/obj/item/organ/internal/eyes/E = H.get_int_organ(/obj/item/organ/internal/eyes)
+		if(!istype(E)) // No eyes? No problem!
+			return
+		switch(safety)
+			if(1)
+				usr << "<span class='danger'>Your eyes sting a little.</span>"
+				E.damage += rand(1, 2)
+				if(E.damage > 12)
+					user.eye_blurry += rand(3,6)
+			if(0)
+				usr << "<span class='danger'>Your eyes burn.</span>"
+				E.damage += rand(2, 4)
+				if(E.damage > 10)
+					E.damage += rand(4,10)
+			if(-1)
+				usr << "<span class='danger'>Your thermals intensify the welder's glow. Your eyes itch and burn severely.</span>"
+				user.eye_blurry += rand(12,20)
+				E.damage += rand(12, 16)
+		if(safety<2)
+			if(E.damage > 10)
+				user << "<span class='danger'>Your eyes are really starting to hurt. This can't be good for you!</span>"
+			if (E.damage >= E.min_broken_damage)
+				user << "<span class='danger'>You go blind!</span>"
+				user.sdisabilities |= BLIND
+			else if (E.damage >= E.min_bruised_damage)
+				user << "<span class='danger'>You go blind!</span>"
+				user.eye_blind = 5
+				user.eye_blurry = 5
+				user.disabilities |= NEARSIGHTED
+				spawn(100)
+					user.disabilities &= ~NEARSIGHTED
+	return
+
+>>>>>>> refs/remotes/ParadiseSS13/master
 /obj/item/weapon/weldingtool/proc/flamethrower_screwdriver(obj/item/I, mob/user)
 	if(welding)
 		user << "<span class='warning'>Turn it off first!</span>"
